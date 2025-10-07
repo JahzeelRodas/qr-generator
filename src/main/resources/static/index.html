@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Códigos QR con Tailwind</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center pt-10 p-4 min-h-screen">
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+        Generador de Códigos QR (Spring Boot + Tailwind)
+    </h1>
+
+    <div id="qr-form" class="bg-white p-6 rounded-lg shadow-xl w-full max-w-md mb-8">
+        <label for="content" class="block text-gray-700 font-semibold mb-2">Contenido a Codificar:</label>
+        <input 
+            type="text" 
+            id="content" 
+            placeholder="Ej: https://tu-sitio.com o un texto" 
+            required
+            class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+        >
+        
+        <label for="size" class="block text-gray-700 font-semibold mt-4 mb-2">Tamaño (píxeles):</label>
+        <input 
+            type="number" 
+            id="size" 
+            value="300" 
+            min="50" 
+            max="1000"
+            class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+        >
+
+        <button 
+            onclick="generateQR()"
+            class="w-full p-3 mt-6 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition duration-150 ease-in-out"
+        >
+            Generar QR
+        </button>
+        
+        <div id="message" class="text-red-600 mt-4 font-medium"></div>
+    </div>
+    
+    <div id="qr-output" class="bg-white p-6 rounded-lg shadow-xl w-full max-w-md text-center">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Código QR Generado:</h2>
+        </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
